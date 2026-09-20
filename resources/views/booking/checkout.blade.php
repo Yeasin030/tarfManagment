@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkout | TurfBooking</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: rgba(11, 15, 13, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05);">
-      <div class="container">
-        <a class="navbar-brand text-white fw-bold d-flex align-items-center gap-2" href="{{ url('/') }}">
-          <div class="bg-primary rounded-circle" style="width: 32px; height: 32px; display: grid; place-items: center;">
-            <span class="text-dark fw-bold">T</span>
-          </div>
-          TURFBOOKING
-        </a>
-      </div>
-    </nav>
+@extends('layouts.app')
 
-    <div class="container mt-5 pt-5 pb-5">
+@section('content')
+<div class="container mt-5 pt-5 pb-5">
       <div class="row justify-content-center mt-4">
         <div class="col-lg-8 animate-fade-in-up">
           <h2 class="fw-bold mb-4">Complete Your Booking</h2>

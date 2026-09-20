@@ -1,45 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ $turf->name }} | TurfBooking</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: rgba(11, 15, 13, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05);">
-      <div class="container">
-        <a class="navbar-brand text-white fw-bold d-flex align-items-center gap-2" href="{{ url('/') }}">
-          <div class="bg-primary rounded-circle" style="width: 32px; height: 32px; display: grid; place-items: center;">
-            <span class="text-dark fw-bold">T</span>
-          </div>
-          TURFBOOKING
-        </a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('search') }}">Find Turf</a></li>
-          </ul>
-          <div class="d-flex gap-3 align-items-center">
-            @auth
-              <span class="text-muted small d-none d-md-inline">Hi, {{ explode(' ', Auth::user()->name)[0] }}</span>
-              <form method="POST" action="{{ route('logout') }}" class="m-0">
-                @csrf
-                <button type="submit" class="btn btn-link text-white text-decoration-none p-0 border-0">Logout</button>
-              </form>
-            @else
-              <a href="{{ route('login') }}" class="btn btn-link text-white text-decoration-none my-auto">Login</a>
-            @endauth
-          </div>
-        </div>
-      </div>
-    </nav>
+@extends('layouts.app')
 
-    <!-- Header Image -->
+@section('content')
+<!-- Header Image -->
     <section class="mt-5 pt-5">
       <div class="container">
         <div style="height: 400px; background: url('{{ $turf->images->first()?->image_path ?? '/hero-bg.jpg' }}') center/cover; border-radius: 12px; position: relative;">
@@ -145,11 +107,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="mt-auto py-5 border-top border-secondary" style="background-color: #0b0f0d;">
-      <div class="container text-center">
-        <p class="text-muted mb-0">&copy; 2026 TurfBooking. All rights reserved.</p>
-      </div>
-    </footer>
-  </body>
-</html>
+    
+@endsection
+
